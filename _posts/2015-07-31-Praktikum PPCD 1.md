@@ -2,7 +2,7 @@
 layout: post
 title: "Transformasi Citra menjadi grayscale dengan opencv python"
 author: Gusti Bimo
-modified:
+modified:2015-07-31
 excerpt: "Praktikum PPCD 1"
 comments: true
 tags: [kuliah,ppcd]

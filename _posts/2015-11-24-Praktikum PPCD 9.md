@@ -7,14 +7,11 @@ modified: 2015-11-24
 comments: true
 ---
 
-Hough Transform adalah suatu metode untuk mendeteksi garis , lingkaran , atau bentuk lainya.Dasar dari Hough transform adalah transformasi garis, yang mana digunakan untuk mencari garis lurus pada citra biner.Pada Hough line transform digunakan titik-titik pada citra biner sebagai bagian dari himpunan kemungkinan garis.Titik pada tiap garis direpresentasikan sebagai titik koordinat polar(rho,theta).Persamaan untuk tiap garis adalah `rho = x cos theta + y sin theta`.[:^1]
-
-Pada kesempatan kaliini saya ingin berbagi 
-[^1]: <https://en.wikipedia.org/wiki/Hough_transform>
+Hough Transform adalah suatu metode untuk mendeteksi garis , lingkaran , atau bentuk lainya.Dasar dari Hough transform adalah transformasi garis, yang mana digunakan untuk mencari garis lurus pada citra biner.Pada Hough line transform digunakan titik-titik pada citra biner sebagai bagian dari himpunan kemungkinan garis.Titik pada tiap garis direpresentasikan sebagai titik koordinat polar(rho,theta).Persamaan untuk tiap garis adalah `rho = x cos theta + y sin theta`.
 
 ### Source Code Python
 
-{% highlight css %}
+{% highlight python%}
 import cv2
 import numpy as np
 
@@ -37,7 +34,7 @@ cv2.destroyAllWindows()
 Selain untuk mendeteksi garis, pada Hough transform juga terdapat metode untuk mendetesi lingkaran pada citra.Hough transfrom untuk lingkaran membutuhkan penggunaan memori yanglebih daripada Line Hough Transfrom, karena pada metode ini digunakan parameter tambahan yaitu titik radius. Oleh karena itu, digunakan trik untuk mengatasi masalah tersebut yaitu memanggil method `CV_HOUGH_GRADIENT` dari library opencv.
 
 ###Source Code Hough Circle
-
+{% highlight python %}
 import cv2
 import cv2.cv
 import numpy as np

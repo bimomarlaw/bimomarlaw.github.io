@@ -36,7 +36,7 @@ cv2.destroyAllWindows()
 
 Selain untuk mendeteksi garis, pada Hough transform juga terdapat metode untuk mendetesi lingkaran pada citra.Hough transfrom untuk lingkaran membutuhkan penggunaan memori yanglebih daripada Line Hough Transfrom, karena pada metode ini digunakan parameter tambahan yaitu titik radius. Oleh karena itu, digunakan trik untuk mengatasi masalah tersebut yaitu memanggil method `CV_HOUGH_GRADIENT` dari library opencv.
 
-##Source Code Hough Circle
+###Source Code Hough Circle
 
 import cv2
 import cv2.cv

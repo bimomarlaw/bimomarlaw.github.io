@@ -9,7 +9,7 @@ tags: []
 
 Halo,ini adalah postingan pertama saya,kali ini saya ingin berbagi apa yang sejauh ini pelajari tentang pengolahan citra digital menggunakan library Opencv. Setelah membaca membaca dokumentasi opencv dan melihat tutorial yang diberikan oleh asisten praktikum, saya ingin mencoba praktekan sendiri tentang bagaimana cara mengubah citra RGB menjadi citra grayscale.Bahasa pemrograman yang saya gunakan adalah python, berikut saya tamplikan source code nya:
 
-{% highlight yaml %}
+{% highlight python %}
 # Konversi RGB ke Grayscale
 import cv2
 
@@ -22,6 +22,6 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()       
 {% endhighlight %}
 
-{% highlight yaml %}
+{% highlight python %}
 author: Gusti Bimo
 {% endhighlight %}

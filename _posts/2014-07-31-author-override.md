@@ -14,7 +14,7 @@ Previously the theme used a global author for the entire site and those attribut
 Start by modifying or creating a new `authors.yml` file in the `_data` folder and add your authors using the following format.
 
 {% highlight yaml %}
-# Authors
+# Autho
 
 billy_rick:
   name: Billy Rick

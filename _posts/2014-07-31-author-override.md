@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Author Override"
+title: "Author Overrid"
 author: Gusti Bimo
 modified:
 excerpt: "A post to test author overrides using a data file."

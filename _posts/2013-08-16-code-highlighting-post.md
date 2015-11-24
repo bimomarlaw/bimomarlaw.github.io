@@ -1,121 +1,64 @@
 ---
 layout: post
-title: Syntax Highlighting Post
-excerpt: "Demo post displaying the various ways of highlighting code in Markdown."
+title: Tranformasi Hough untuk deteksi garis lurus
+excerpt: "Praktikum PPCD 9"
 tags: [sample post, code, highlighting]
-modified: 2014-09-14
+modified: 2015-11-24
 comments: true
 ---
 
-Syntax highlighting is a feature that displays source code, in different colors and fonts according to the category of terms. This feature facilitates writing in a structured language such as a programming language or a markup language as both structures and syntax errors are visually distinct. Highlighting does not affect the meaning of the text itself; it is intended only for human readers.[^1]
+Hough Transform adalah suatu metode untuk mendeteksi garis , lingkaran , atau bentuk lainya.Dasar dari Hough transform adalah transformasi garis, yang mana digunakan untuk mencari garis lurus pada citra biner.Pada Hough line transform digunakan titik-titik pada citra biner sebagai bagian dari himpunan kemungkinan garis.Titik pada tiap garis direpresentasikan sebagai titik koordinat polar(rho,theta).Persamaan untuk tiap garis adalah `rho = x cos theta + y sin theta`.[:^1]
 
-[^1]: <http://en.wikipedia.org/wiki/Syntax_highlighting>
+Pada kesempatan kaliini saya ingin berbagi 
+[^1]: <https://en.wikipedia.org/wiki/Hough_transform>
 
-### Pygments Code Blocks
-
-To modify styling and highlight colors edit `/_sass/_pygments.scss`.
+### Source Code Python
 
 {% highlight css %}
-#container {
-    float: left;
-    margin: 0 -240px 0 0;
-    width: 100%;
-}
+import cv2
+import numpy as np
+
+img = cv2.imread('dor.jpg')
+gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+edges = cv2.Canny(gray,50,150,apertureSize = 3)
+minLineLength = 100
+maxLineGap = 10
+lines = cv2.HoughLines(edges,1,np.pi/180,100,minLineLength,maxLineGap)
+for x1,y1,x2,y2 in lines[0]:
+    cv2.line(img,(x1,y1),(x2,y2),(0,255,0),2)
+
+cv2.imwrite('houghlines5.jpg',img)
+cv2.imshow('hough trans', img)
+cv2.imshow('canny',edges)
+cv2.waitKey(0)                 # Waits forever for user to press any key
+cv2.destroyAllWindows()
 {% endhighlight %}
 
-{% highlight html %}
-{% raw %}
-<nav class="pagination" role="navigation">
-    {% if page.previous %}
-        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
-    {% endif %}
-    {% if page.next %}
-        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
-    {% endif %}
-</nav><!-- /.pagination -->
-{% endraw %}
-{% endhighlight %}
+Selain untuk mendeteksi garis, pada Hough transform juga terdapat metode untuk mendetesi lingkaran pada citra.Hough transfrom untuk lingkaran membutuhkan penggunaan memori yanglebih daripada Line Hough Transfrom, karena pada metode ini digunakan parameter tambahan yaitu titik radius. Oleh karena itu, digunakan trik untuk mengatasi masalah tersebut yaitu memanggil method `CV_HOUGH_GRADIENT` dari library opencv.
 
-{% highlight ruby %}
-module Jekyll
-  class TagIndex < Page
-    def initialize(site, base, dir, tag)
-      @site = site
-      @base = base
-      @dir = dir
-      @name = 'index.html'
-      self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), 'tag_index.html')
-      self.data['tag'] = tag
-      tag_title_prefix = site.config['tag_title_prefix'] || 'Tagged: '
-      tag_title_suffix = site.config['tag_title_suffix'] || '&#8211;'
-      self.data['title'] = "#{tag_title_prefix}#{tag}"
-      self.data['description'] = "An archive of posts tagged #{tag}."
-    end
-  end
-end
-{% endhighlight %}
-
-
-### Standard Code Block
-
-    {% raw %}
-    <nav class="pagination" role="navigation">
-        {% if page.previous %}
-            <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
-        {% endif %}
-        {% if page.next %}
-            <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
-        {% endif %}
-    </nav><!-- /.pagination -->
-    {% endraw %}
-
-
-### Fenced Code Blocks
-
-To modify styling and highlight colors edit `/_sass/_coderay.scss`. Line numbers and a few other things can be modified in `_config.yml`. Consult [Jekyll's documentation](http://jekyllrb.com/docs/configuration/) for more information.
-
-~~~ css
-#container {
-    float: left;
-    margin: 0 -240px 0 0;
-    width: 100%;
-}
-~~~
-
-~~~ html
-{% raw %}<nav class="pagination" role="navigation">
-    {% if page.previous %}
-        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous article</a>
-    {% endif %}
-    {% if page.next %}
-        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next article</a>
-    {% endif %}
-</nav><!-- /.pagination -->{% endraw %}
-~~~
-
-~~~ ruby
-module Jekyll
-  class TagIndex < Page
-    def initialize(site, base, dir, tag)
-      @site = site
-      @base = base
-      @dir = dir
-      @name = 'index.html'
-      self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), 'tag_index.html')
-      self.data['tag'] = tag
-      tag_title_prefix = site.config['tag_title_prefix'] || 'Tagged: '
-      tag_title_suffix = site.config['tag_title_suffix'] || '&#8211;'
-      self.data['title'] = "#{tag_title_prefix}#{tag}"
-      self.data['description'] = "An archive of posts tagged #{tag}."
-    end
-  end
-end
-~~~
-
-### GitHub Gist Embed
-
-An example of a Gist embed below.
-
+##Source Code Hough Circle
 {% gist mmistakes/6589546 %}
+import cv2
+import cv2.cv
+import numpy as np
+
+img = cv2.imread('images.png',0)
+img = cv2.medianBlur(img,5)
+cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
+
+circles = cv2.HoughCircles(img,cv2.cv.CV_HOUGH_GRADIENT,1,20,
+                            param1=50,param2=30,minRadius=0,maxRadius=0)
+
+circles = np.uint16(np.around(circles))
+for i in circles[0,:]:
+    # draw the outer circle
+    cv2.circle(cimg,(i[0],i[1]),i[2],(0,255,0),2)
+    # draw the center of the circle
+    cv2.circle(cimg,(i[0],i[1]),2,(0,0,255),3)
+
+cv2.imshow('detected circles',cimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+

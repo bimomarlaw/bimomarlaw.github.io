@@ -29,17 +29,17 @@ owner:
   avatar: alice.gif
   bio: "Blog ga penting."
   email:
-  disqus-shortname:
+  disqus-shortname: gustibimo
   twitter: #username
   facebook: #username
   google:
-    plus: #username
+    plus: gustibimo
     analytics:
     verify:
     ad-client:
     ad-slot:
   bing-verify:
-  github: #username
+  github: http://github.com/Gustibimo
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
   linkedin: #username
   xing: #username

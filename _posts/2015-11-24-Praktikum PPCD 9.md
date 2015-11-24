@@ -2,7 +2,7 @@
 layout: post
 title: Tranformasi Hough untuk deteksi garis lurus dan lingkaran
 excerpt: "Praktikum PPCD 9"
-tags: [sample post, code, highlighting]
+tags: [ppcd, code,kuliah]
 modified: 2015-11-24
 comments: true
 ---

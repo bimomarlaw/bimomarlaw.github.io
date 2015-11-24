@@ -4,7 +4,8 @@ title: "Transformasi Citra menjadi grayscale dengan opencv python"
 author: Gusti Bimo
 modified:
 excerpt: "Praktikum PPCD 1"
-tags: []
+comments: true
+tags: [kuliah,ppcd]
 ---
 
 Halo,ini adalah postingan pertama saya,kali ini saya ingin berbagi apa yang sejauh ini pelajari tentang pengolahan citra digital menggunakan library Opencv. Setelah membaca membaca dokumentasi opencv dan melihat tutorial yang diberikan oleh asisten praktikum, saya ingin mencoba praktekan sendiri tentang bagaimana cara mengubah citra RGB menjadi citra grayscale.Bahasa pemrograman yang saya gunakan adalah python, berikut saya tamplikan source code nya:

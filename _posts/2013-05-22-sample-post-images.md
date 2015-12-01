@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "A Post with Images"
-excerpt: "Examples and code for displaying images in posts."
-tags: [sample post, images, test]
+title: "OpenCV Morphological Transformation"
+excerpt: "Image Enhanchement."
+tags: [python, images, opencv]
 comments: true
 ---
 
